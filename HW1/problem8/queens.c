@@ -20,6 +20,8 @@ void solve(int col, int **board){
         }
     }
 
+    
+
 
 }
 
