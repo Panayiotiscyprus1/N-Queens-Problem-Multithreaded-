@@ -32,6 +32,7 @@ void *solve(void *arg){
         return(NULL);
     }
 
+    
     for(int r = row; r < N; r++){
         if (safe(r, col, board)){
             board[r][col] = 1;
