@@ -4,6 +4,8 @@
 
 #define N 8
 
+int safe(int row, int col, int **board);
+
 int** initboard() {
     int **board = malloc(8 * sizeof(int*));
 
