@@ -7,6 +7,8 @@
 *.exe
 *.out
 queens
+*.json
+.vscode
 
 # Common build folders
 /build/

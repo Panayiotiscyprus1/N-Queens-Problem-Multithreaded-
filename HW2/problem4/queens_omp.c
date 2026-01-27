@@ -1,11 +1,18 @@
 #include <pthread.h>
 #include <stdio.h>
 #include <omp.h>
+#include <time.h>
 
 #include "board.h"
 #include "safe.h"
 
 #define N 8
+
+long micro_seconds(const struct timespec *start, const struct timespec *stop) {
+    long sec  = stop->tv_sec  - start->tv_sec;
+    long nsec = stop->tv_nsec - start->tv_nsec;
+    return sec * 1000000L + nsec / 1000L;
+}
 
 int count = 0;
 void solve(int col, int **board){
@@ -36,7 +43,17 @@ void solve(int col, int **board){
 }
 
 int main(){
+    struct timespec t_start, t_stop;
+
     int **b = initboard();
+
+    clock_gettime(CLOCK_MONOTONIC, &t_start);
+
     solve(0, b);
     printf("total count: %i\n", count);
+
+    clock_gettime(CLOCK_MONOTONIC, &t_stop);
+    long wall = micro_seconds(&t_start, &t_stop);
+
+    printf("WALL TIME: %ld microseconds\n", wall);
 }
