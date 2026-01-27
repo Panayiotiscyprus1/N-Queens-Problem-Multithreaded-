@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <sys/time.h>
 #include <time.h>
-#include "../header.h"
+#include "header.h"
 
 
 

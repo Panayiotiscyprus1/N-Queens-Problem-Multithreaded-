@@ -2,11 +2,6 @@
 #include <stdlib.h>
 #include "header.h"
 
-<<<<<<< HEAD:board.c
-=======
-#define N 8
->>>>>>> abfba509741475083afd22b10a04f052d8bcea9d:HW1/problem7/board.c
-
 int** initboard() {
     int **board = malloc(N * sizeof(int*));
 

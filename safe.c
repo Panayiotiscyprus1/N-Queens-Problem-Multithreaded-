@@ -1,8 +1,5 @@
-<<<<<<< HEAD:safe.c
 #include "header.h"
-=======
-#define N 8
->>>>>>> abfba509741475083afd22b10a04f052d8bcea9d:HW1/problem7/safe.c
+
 
 int safe(int row, int col, int **board){
     // Check this row on left side
