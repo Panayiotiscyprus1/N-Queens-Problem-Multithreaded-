@@ -42,7 +42,7 @@ void *solve(void *arg){
         
         pthread_mutex_lock(&print_lock);
         
-        printf("I am thread %i with count %i \n", id, results[id]);
+        printf("\n I am thread %i with count %i \n", id, results[id]);
         printboard(board);
 
         pthread_mutex_unlock(&print_lock);
@@ -94,4 +94,8 @@ int main(){
 
     printf("TOTAL SOLUTIONS: %i \n", total);
     printf("WALL TIME: %ld microseconds\n", wall);
+
+    for(int i = 0; i < N; i++){
+        free(arg[i]);
+    }
 }
