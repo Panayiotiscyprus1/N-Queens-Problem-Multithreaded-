@@ -32,7 +32,7 @@ void *solve(void *arg){
 
     solveArg *args = (solveArg *)arg; 
     int col = args->col;
-    int row = args->row;
+    // int row = args->row;
     int **board = args->board;
     int id = args->id;
 

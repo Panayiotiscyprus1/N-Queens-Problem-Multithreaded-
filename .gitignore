@@ -13,3 +13,5 @@ queens
 # Common build folders
 /build/
 /bin/
+
+queens_*

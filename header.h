@@ -1,4 +1,4 @@
-#define N 8
+#define N 12
 
 int** initboard();
 void printboard(int **board);
