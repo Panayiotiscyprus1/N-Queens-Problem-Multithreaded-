@@ -93,7 +93,7 @@ int main(){
     long wall = micro_seconds(&t_start, &t_stop);
 
     printf("TOTAL SOLUTIONS: %i \n", total);
-    printf("WALL TIME: %ld microseconds\n", wall);
+    printf("WALL TIME (pthreads): %ld microseconds\n", wall);
 
     for(int i = 0; i < N; i++){
         free(arg[i]);

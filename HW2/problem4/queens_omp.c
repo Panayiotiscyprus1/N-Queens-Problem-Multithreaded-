@@ -1,4 +1,3 @@
-#include <pthread.h>
 #include <stdio.h>
 #include <omp.h>
 #include <time.h>
@@ -44,17 +43,18 @@ int main(){
     struct timespec t_start, t_stop;
     clock_gettime(CLOCK_MONOTONIC, &t_start);
 
-    #pragma omp parallel for reduction (+:count)
+    #pragma omp parallel for reduction (+:count) schedule(dynamic,1)
     for(int row = 0; row < N; row++){
         int **local_b = initboard();
         local_b[row][0] = 1;
         solve(1, local_b);
+        free(local_b);
     }
-    
-    printf("total count: %i\n", count);
 
     clock_gettime(CLOCK_MONOTONIC, &t_stop);
     long wall = micro_seconds(&t_start, &t_stop);
 
-    printf("WALL TIME: %ld microseconds\n", wall);
+    printf("total count: %i\n", count);
+
+    printf("WALL TIME (omp): %ld microseconds\n", wall);
 }
