@@ -1,4 +1,4 @@
-#define N 10
+#define N 8
 
 int safe(int row, int col, int **board){
     // Check this row on left side
