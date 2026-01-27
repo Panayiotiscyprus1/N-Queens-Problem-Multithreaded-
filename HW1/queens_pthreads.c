@@ -6,10 +6,6 @@
 #include "../header.h"
 
 
-<<<<<<< HEAD:HW1/queens_pthreads.c
-=======
-#define N 8
->>>>>>> abfba509741475083afd22b10a04f052d8bcea9d:HW1/problem7/queens_pthreads.c
 
 pthread_mutex_t print_lock = PTHREAD_MUTEX_INITIALIZER;
 
