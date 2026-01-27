@@ -2,11 +2,7 @@
 #include <stdio.h>
 #include <omp.h>
 #include <time.h>
-
-#include "board.h"
-#include "safe.h"
-
-#define N 10
+#include "header.h"
 
 long micro_seconds(const struct timespec *start, const struct timespec *stop) {
     long sec  = stop->tv_sec  - start->tv_sec;

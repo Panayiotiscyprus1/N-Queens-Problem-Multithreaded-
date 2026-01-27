@@ -1,12 +1,11 @@
 #include <pthread.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "board.h"
-#include "safe.h"
 #include <sys/time.h>
 #include <time.h>
+#include "../header.h"
 
-#define N 10
+
 
 pthread_mutex_t print_lock = PTHREAD_MUTEX_INITIALIZER;
 

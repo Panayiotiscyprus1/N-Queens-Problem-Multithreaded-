@@ -1,9 +1,7 @@
 #include <pthread.h>
 #include <stdio.h>
-#include "board.h"
-#include "safe.h"
+#include "header.h"
 
-#define N 10
 
 long micro_seconds(const struct timespec *start, const struct timespec *stop) {
     long sec  = stop->tv_sec  - start->tv_sec;

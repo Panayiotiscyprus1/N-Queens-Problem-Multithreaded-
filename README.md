@@ -6,3 +6,5 @@ each other. This includes conflicts along rows, columns, and diagonals. For N= 8
 
 ## Multithreading Solutions:
 ### In this repo, we implemented a solution of the problem taking advantage of parallel computing, using p_threads or OpenMP
+
+# gcc flag to find header file: -I.. queens_omp.c ../safe.c ../board.c

@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "header.h"
 
-#define N 10
 
 int** initboard() {
     int **board = malloc(N * sizeof(int*));

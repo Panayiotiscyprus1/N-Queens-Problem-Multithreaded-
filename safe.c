@@ -1,4 +1,4 @@
-#define N 10
+#include "header.h"
 
 int safe(int row, int col, int **board){
     // Check this row on left side
