@@ -6,6 +6,10 @@
 #include "../header.h"
 
 
+<<<<<<< HEAD:HW1/queens_pthreads.c
+=======
+#define N 8
+>>>>>>> abfba509741475083afd22b10a04f052d8bcea9d:HW1/problem7/queens_pthreads.c
 
 pthread_mutex_t print_lock = PTHREAD_MUTEX_INITIALIZER;
 
@@ -39,12 +43,12 @@ void *solve(void *arg){
     if(col == N){
         results[id]+=1;
         
-        // pthread_mutex_lock(&print_lock);
+        pthread_mutex_lock(&print_lock);
         
-        // printf("\n I am thread %i with count %i \n", id, results[id]);
-        // printboard(board);
+        printf("\n I am thread %i with count %i \n", id, results[id]);
+        printboard(board);
 
-        // pthread_mutex_unlock(&print_lock);
+        pthread_mutex_unlock(&print_lock);
 
         return(NULL);
     }
