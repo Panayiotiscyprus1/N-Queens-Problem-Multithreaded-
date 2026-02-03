@@ -2,8 +2,8 @@ CC := gcc
 
 CFLAGS  := -Wall -Wextra -O2 -I.
 PTHREAD := -pthread
-# OMP     := -fopenmp
-OMP     := -Xpreprocessor -fopenmp -lomp -L/opt/homebrew/opt/libomp/lib -I/opt/homebrew/opt/libomp/include
+OMP     := -fopenmp
+# OMP     := -Xpreprocessor -fopenmp -lomp -L/opt/homebrew/opt/libomp/lib -I/opt/homebrew/opt/libomp/include
 
 COMMON_SRC := board.c safe.c
 COMMON_OBJ := $(COMMON_SRC:.c=.o)
