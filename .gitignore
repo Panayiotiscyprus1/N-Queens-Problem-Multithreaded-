@@ -14,4 +14,4 @@ queens
 /build/
 /bin/
 
-queens_*
+queens_*.bin
