@@ -43,7 +43,32 @@ void *Men(void *arg){
 }
 
 void *Women(void *arg){
-    
+    while(1){
+        sem_wait(&e);
+        if(nm > 0){
+            dw++;
+            sem_post(&e);
+            sem_wait(&w);
+        }
+        nw++;
+        if(dw > 0){
+            dw--;
+            sem_post(&w);
+        }else{
+            sem_post(&e);
+        }
+
+        // do dis do dat, nootropia type shi
+
+        sem_wait(&e);
+        nw--;
+        if(nw == 0 && dm > 0){
+            dm--;
+            sem_post(&m);
+        }else{
+            sem_post(&e);
+        }
+    }    
 }
 
 int main(){
