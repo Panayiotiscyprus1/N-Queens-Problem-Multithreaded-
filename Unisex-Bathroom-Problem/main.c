@@ -5,6 +5,19 @@
 #include <unistd.h>
 #include <time.h>
 
+#ifdef __APPLE__
+    #include <dispatch/dispatch.h>
+    typedef dispatch_semaphore_t sem_type;
+    #define SEM_WAIT(s)   dispatch_semaphore_wait(s, DISPATCH_TIME_FOREVER)
+    #define SEM_POST(s)   dispatch_semaphore_signal(s)
+    #define SEM_INIT(s, v) s = dispatch_semaphore_create(v)
+#else
+    #include <semaphore.h>
+    typedef sem_t sem_type;
+    #define SEM_WAIT(s)   sem_wait(&s)
+    #define SEM_POST(s)   sem_post(&s)
+    #define SEM_INIT(s, v) sem_init(&s, 0, v)
+#endif
 
 #define SHARED 0
 #define MEN 6
@@ -37,10 +50,10 @@ void *Men(void *arg){
             sem_post(&e);
             sem_post(&q);
             sem_wait(&m);
+        }else{
+            sem_post(&q);
         }
-
-        sem_post(&q);
-        sem_post(&e);
+        
         nm++;
         if (dm>0){
             dm--;
@@ -79,10 +92,10 @@ void *Women(void *arg){
             sem_post(&e);
             sem_post(&q);
             sem_wait(&w);
+        }else{
+            sem_post(&q);
         }
 
-        sem_post(&q);
-        sem_post(&e);
         nw++;
         if(dw > 0){
             dw--;
