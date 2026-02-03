@@ -2,6 +2,8 @@
 #include <stdlib.h>
 #include <pthread.h>
 #include <semaphore.h>
+#include <unistd.h>
+
 
 #define SHARED 1
 
@@ -12,6 +14,12 @@ int nm, nw = 0;
 int dm, dw = 0;
 
 sem_t e, m, w;
+
+void delay(){
+    int min = 1, max = 10;
+    int t = min + rand()% (max-min+1);
+    sleep(t);
+}
 
 void *Men(void *arg){
     while (1){
@@ -29,7 +37,7 @@ void *Men(void *arg){
             sem_post(&e);
         }
 
-        // Critical Section
+        delay(); // do dis do dat, nootropia type shi
 
         sem_wait(&e);
         nm--;
@@ -58,7 +66,7 @@ void *Women(void *arg){
             sem_post(&e);
         }
 
-        // do dis do dat, nootropia type shi
+        delay(); // do dis do dat, read a book (mega alexantro)
 
         sem_wait(&e);
         nw--;
