@@ -6,8 +6,8 @@
 
 
 #define SHARED 0
-#define MEN 6
-#define WOMEN 6
+#define MEN 8
+#define WOMEN 4
 #define ITER 10
 
 void *Men(void *);
@@ -36,10 +36,12 @@ void *Men(void *arg){
             sem_post(&e);
             sem_post(&q);
             sem_wait(&m);
+        }else{
+            sem_post(&e);
+            sem_post(&q);
         }
 
-        sem_post(&q);
-        sem_post(&e);
+        sem_wait(&e);
         nm++;
         if (dm>0){
             dm--;
@@ -78,10 +80,12 @@ void *Women(void *arg){
             sem_post(&e);
             sem_post(&q);
             sem_wait(&w);
+        }else{
+            sem_post(&e);
+            sem_post(&q);
         }
 
-        sem_post(&q);
-        sem_post(&e);
+        sem_wait(&e);
         nw++;
         if(dw > 0){
             dw--;
